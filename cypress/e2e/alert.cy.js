@@ -1,9 +1,9 @@
 describe('Handle JS Confirm dialog in Cypress', () => {
     it('Validates and interacts with the Confirm dialog', () => {
       cy.visit('https://rahulshettyacademy.com/AutomationPractice/');
-  
+
       cy.get('#name').type('Test Alert');
-  
+
       // Intercept the alert and validate its content
       cy.on('window:confirm', (message) => {   //'window:confirm' is an event that listens for JavaScript confirm() dialogs triggered in the browser.
         // Validate the message content
@@ -12,11 +12,16 @@ describe('Handle JS Confirm dialog in Cypress', () => {
         // Return true to simulate clicking "OK"
         return true;
       });
-  
+
       // Click the Confirm button
       cy.get('#confirmbtn').click();
-  
+
       cy.wait(2000);
+      /* ==== Generated with Cypress Studio ==== */
+      cy.get('[for="radio1"]').click();
+      cy.get('[for="radio2"]').click();
+      cy.get('[for="radio3"]').click();
+      /* ==== End Cypress Studio ==== */
     });
   });
   
